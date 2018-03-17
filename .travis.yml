@@ -1,0 +1,7 @@
+sudo: required
+services:
+- docker
+language: bash
+script:
+- docker run --rm --privileged multiarch/qemu-user-static:register --reset
+- travis_wait 2880 docker build -t gst/pi .
